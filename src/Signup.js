@@ -1,5 +1,22 @@
 import { Link } from "react-router-dom";
+import { useHistory } from "react-router-dom";
 const Signup = () => {
+ 
+const history= useHistory();
+
+const validateAdmin=(uname,password)=>
+{
+  console.log(uname,password);
+  if(uname&&password==="Admin")
+  {
+    history.push("/Admin");
+  }
+  else
+  {
+    alert("Please Try Again or Register");
+  }
+}
+
     return ( 
         <div className="signup">
             <form className="form-signin">
@@ -16,16 +33,17 @@ const Signup = () => {
 
                 <label for="inputEmail" className="sr-only" style={{  
                         color: 'white'}} >  Email address </label>
-                <input type="email" id="inputEmail" className="form-control" placeholder="Email address" required autofocus />
+                <input type="email" id="inputEmail" className="form-control" placeholder="Email address"  required autofocus />
                 <br/>
                 <br/>
-                <label for="inputPassword" className="sr-only" style={{  
-                        color: 'white'}}> Password </label>
-                <input type="password" id="inputPassword" className="form-control" placeholder="Password" required />
+                <label for="inputPassword" className="sr-only" style={{color:'white'}}> Password </label>
+                <br/>
+                <input type="password" id="inputPassword" className="form-control" placeholder="Password"  required />
                 <br/>
                 </div>
                 <br/>
-                <button className="btn btn-lg btn-primary btn-block" type="button"> Login
+                <button className="btn btn-lg btn-primary btn-block" type="button" onClick={()=>validateAdmin(document.getElementById("inputEmail").value,document.getElementById("inputPassword").value)}>
+                     Login
                 </button>
                 <br/>
                 <br/>

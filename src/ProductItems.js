@@ -1,14 +1,16 @@
-/* eslint-disable jsx-a11y/img-redundant-alt */
 const ProductItems = (props) => {
-    const product=props.product;
+const pros=props.pro;
+ 
     return ( 
         <div className="productItem-view">
-            {product.map(product=>(
-                <div className="Item-view" key={product.id}>
-                    <h4>{product.title}</h4>
-                    <h5>{product.price}</h5>
+            <h2>Items</h2>
+                <div className="Item-view" key={pros.id}>
+                    <h4>{pros.title}</h4>
+                    <img src={pros.img} alt="TheImage"/>
+                    <h5>{pros.price}</h5>
+                    <br/>
+                    <button className="addToCart" onClick={()=> props.addItem(pros.id) }><h3>Add to Cart</h3></button>
                 </div>
-            ))}
         </div>
      );
 }

@@ -1,18 +1,12 @@
 //import {  useState } from "react";
 import ProductItems from "./ProductItems";
 
-const Product = () => {
-    
-    const [product]=([
-        {title:"Chicken Pastry",imageUrl:"IMG1",price:"rs.60.00",id:1 },
-        {title:"Cake Piece",imageUrl:"",price:"rs.1000.00",id:2 },
-        {title:"Chicken Pastry",imageUrl:"",price:"rs.60.00",id:3 }
-    ])
-    
-    
+const Product = (props) => {
     return ( 
         <div className="product-view">
-            <ProductItems product={product}/>
+             {props.product.map(product=>(
+              <ProductItems pro={product} key={product.id} addItem={props.addItem} />
+            ))}
         </div>
      );
 }

@@ -9,13 +9,13 @@ const Navbar = () => {
             <div className="links">
                 <Link to="/">Home</Link>
                 <div className="dropdown">
-                    <Link className="dropbtn">Products</Link>
+                    <p className="dropbtn">Products</p >
                     <div className="dropdown-content">
                         <Link to="/Product">Backery Items</Link>
-                        <Link to="Product">Party Items</Link>
+                        <Link to="/">Party Items</Link>
                     </div>
                 </div>
-                <Link to="/">Cart</Link>
+                <Link to="/Cart">Cart</Link>
                 <Link to="/">About Us</Link>
                 <Link to="/Signup" style={{ 
                             color: 'white', 
