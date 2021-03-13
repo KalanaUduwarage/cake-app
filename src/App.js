@@ -6,7 +6,6 @@ import RegisterForum from './RegisterForum';
 import Cart from './Cart';
 import Admin from "./Admin";
 import Orders from "./Orders";
-import StockSelect from "./StockSelect";
 import StockView from "./StockView";
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import { useState } from "react";
@@ -25,24 +24,15 @@ function App() {
   ];
 
   let ORDER = [
-    {id: 1,cart:'b1,b2,p1,p2',email: 'abc@def.com', phno: '0771234567', adress: 'panadura'},
-    {id: 2,cart:'b1,b2,p1,p2',email: 'abc@def.com', phno: '0771234567', adress: 'panadura'},
-    {id: 3,cart:'b1,b2,p1,p2',email: 'abc@def.com', phno: '0771234567', adress: 'panadura'},
-    {id: 4,cart:'b1,b2,p1,p2',email: 'abc@def.com', phno: '0771234567', adress: 'panadura'},
-    {id: 5,cart:'b1,b2,p1,p2',email: 'abc@def.com', phno: '0771234567', adress: 'panadura'},
-    {id: 6,cart:'b1,b2,p1,p2',email: 'abc@def.com', phno: '0771234567', adress: 'panadura'},
-    {id: 7,cart:'b1,b2,p1,p2',email: 'abc@def.com', phno: '0771234567', adress: 'panadura'}
+    {id: 1,cart:'b1,b2,p1,p2',email: 'abc@def.com', phno: '0771234567', adress: 'panadura' , status:"Wait"},
+    {id: 2,cart:'b1,b2,p1,p2',email: 'abc@def.com', phno: '0771234567', adress: 'panadura', status:"Wait"},
+    {id: 3,cart:'b1,b2,p1,p2',email: 'abc@def.com', phno: '0771234567', adress: 'panadura', status:"Wait"},
+    {id: 4,cart:'b1,b2,p1,p2',email: 'abc@def.com', phno: '0771234567', adress: 'panadura', status:"Wait"},
+    {id: 5,cart:'b1,b2,p1,p2',email: 'abc@def.com', phno: '0771234567', adress: 'panadura', status:"Wait"},
+    {id: 6,cart:'b1,b2,p1,p2',email: 'abc@def.com', phno: '0771234567', adress: 'panadura', status:"Wait"},
+    {id: 7,cart:'b1,b2,p1,p2',email: 'abc@def.com', phno: '0771234567', adress: 'panadura', status:"Wait"}
   ];
 
-  let BSTK = [
-    {id: 1,name:'millk',date: '2021', supplier: 'abcdCompany', qty:0},
-    {id: 2,name:'millk',date: '2021', supplier: 'abcdCompany', qty:0},
-    {id: 3,name:'millk',date: '2021', supplier: 'abcdCompany', qty:0},
-    {id: 4,name:'millk',date: '2021', supplier: 'abcdCompany', qty:0},
-    {id: 5,name:'millk',date: '2021', supplier: 'abcdCompany', qty:0},
-    {id: 6,name:'millk',date: '2021', supplier: 'abcdCompany', qty:0},
-    {id: 7,name:'millk',date: '2021', supplier: 'abcdCompany', qty:0}
-  ];
   
   let PSTK = [
     {id: 1,name:'baloons',date: '2021', supplier: 'abcdCompany', qty:0},
@@ -53,12 +43,8 @@ function App() {
     {id: 6,name:'baloons',date: '2021', supplier: 'abcdCompany', qty:0},
     {id: 7,name:'baloons',date: '2021', supplier: 'abcdCompany', qty:0}
   ];
-  
-  let [bstock,setBstock]=useState(BSTK);
 
   let [pstock,setPstock]=useState(PSTK);
-
-  let[stock,setStock]= useState({id:0 ,name:'',date: '', supplier: '', qty:0});
 
   let [oder,setOrder]=useState(ORDER);
 
@@ -107,26 +93,14 @@ function App() {
     setOrder(rmv);
   }
 
-  let[strr,setStrr]=useState();
+  /*const handleUpdate=(id,status)=>{
 
-  const stockSelect=(str)=>
-  {
-    strr=str;
-    setStrr(strr);
-    console.log(strr);
-    if(strr==='b')
-    {
-      stock=bstock;
-      setStock(stock);
-    }
-    else if(strr==='p')
-    {
-      stock=pstock;
-      setStock(stock);
-    }
-    console.log(stock);
-  }
+  }*/
 
+  /*const  handleUpdateStock=(id,qty,dt)=>
+  { 
+
+  }*/
 
    /*  const click= (q,id)=>{
   //let quantity = product.find()
@@ -173,13 +147,10 @@ function App() {
                 <Admin />
               </Route>
               <Route exact path="/Orders">
-                <Orders orders={oder} removeOrder={removeOrder}/>
-              </Route>
-              <Route exact path="/StockSelect">
-                <StockSelect stockSelect={stockSelect} />
+                <Orders orders={oder} removeOrder={removeOrder} /*handleUpdate={handleUpdate}*//>
               </Route>
               <Route exact path="/StockView">
-                <StockView stocks={stock}  />
+                <StockView stocks={pstock}  />
               </Route>
             </Switch>
           </div>

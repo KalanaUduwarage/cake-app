@@ -1,13 +1,15 @@
 import Stock from "./Stock";
 
-const StockView = ({stock}) => {
+const StockView = ({stocks}) => {
 
-    console.log('st-view:'+stock);
+console.log(stocks);
+
+    
 
     return ( 
         <div className="sock-view">
-             {stock.map(stock=>(
-                <Stock stock={stock} />
+             {stocks.map(stocks=>(
+                <Stock stock={stocks} />
                 ))
             }
         </div>     

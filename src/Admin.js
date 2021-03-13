@@ -5,7 +5,7 @@ const Admin = () => {
         <div className="admin">
             <h2>Welcome Admin!!</h2>
             <Link to='/Orders'><button type="button">View Orders</button></Link>
-            <Link to='/StockSelect'><button>View Stocks</button></Link>
+            <Link to='/StockView'><button>View Stocks</button></Link>
         </div>
      );
 }
