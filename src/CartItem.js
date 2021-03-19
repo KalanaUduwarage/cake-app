@@ -3,6 +3,7 @@ import { useState } from "react";
 const CartItem = (props) => {
 
     let pr = props.pro;
+    
    
 
     const arr= Object.values(pr);
@@ -31,7 +32,7 @@ const CartItem = (props) => {
                         <h3 className="qty">{qty}</h3>
                         <button className="minus" onClick={()=>handleMinus(qty)}><h3>-</h3></button>
                         <br/>
-                        <button className="addToCart" onClick={()=>props.updateItem(qty,arr[3])} ><h3>Confirm</h3></button>
+                        <button className="addToCart" onClick={()=>props.updateItem(qty,arr[3]),()=>{alert("Quantity Updated for:"+arr[0])}} ><h3>Confirm</h3></button>
                         <button className="addToCart" onClick={()=>props.remove(arr[3])} ><h3>Remove</h3></button>
                     </div>
                     </div>

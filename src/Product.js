@@ -1,4 +1,4 @@
-//import {  useState } from "react";
+
 import ProductItems from "./ProductItems";
 
 const Product = (props) => {

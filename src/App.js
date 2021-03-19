@@ -7,6 +7,8 @@ import Cart from './Cart';
 import Admin from "./Admin";
 import Orders from "./Orders";
 import StockView from "./StockView";
+import AddNewStock from "./AddNewStock";
+import AddNewProduct from "./AddNewProduct";
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import { useState } from "react";
 
@@ -89,8 +91,43 @@ function App() {
 
   const removeOrder = (id) => {
     const rmv = oder.filter(qqq => qqq.id !== id);
-    //console.log(rmv)
     setOrder(rmv);
+  }
+
+  const updateOrders = (id,st) =>{
+    //console.log('id:'+id);
+    //console.log('st:'+st);
+    oder.forEach(item=>{
+      if(item.id===id)
+      {
+       item.status=st;
+       setOrder(oder);
+       //console.log("item status:"+item.status); 
+      }
+    })
+     //console.log(oder);    
+  }
+  
+  const updateStocks = (id,qt) =>{
+    console.log('id:'+id);
+    console.log('qty:'+qt);
+  
+    var dt = new Date();
+
+    pstock.forEach(item=>{
+      if(item.id===id)
+      {
+       item.qty=qt;
+       item.date=dt.toDateString();
+       setPstock(pstock);
+      }
+    })
+     console.log(pstock);    
+  }
+
+  const removeStock = (id) => {
+    const rmv = pstock.filter(qqq => qqq.id !== id);
+    setPstock(rmv);
   }
 
   /*const handleUpdate=(id,status)=>{
@@ -147,10 +184,16 @@ function App() {
                 <Admin />
               </Route>
               <Route exact path="/Orders">
-                <Orders orders={oder} removeOrder={removeOrder} /*handleUpdate={handleUpdate}*//>
+                <Orders orders={oder} removeOrder={removeOrder} updateOrders={updateOrders}/>
               </Route>
               <Route exact path="/StockView">
-                <StockView stocks={pstock}  />
+                <StockView stocks={pstock} updateStocks={updateStocks} removeStock={removeStock} />
+              </Route>
+              <Route exact path="/AddNewStock">
+                <AddNewStock />
+              </Route>
+              <Route exact path="/AddNewProduct">
+                <AddNewProduct />
               </Route>
             </Switch>
           </div>

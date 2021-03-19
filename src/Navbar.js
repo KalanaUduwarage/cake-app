@@ -12,7 +12,7 @@ const Navbar = () => {
                     <p className="dropbtn">Products</p >
                     <div className="dropdown-content">
                         <Link to="/Product">Backery Items</Link>
-                        <Link to="/">Party Items</Link>
+                        <Link to="/Product">Party Items</Link>
                     </div>
                 </div>
                 <Link to="/Cart">Cart</Link>
