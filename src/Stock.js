@@ -17,20 +17,22 @@ const Stock = ({stock,updateStocks,removeStock}) => {
       }
 
     return ( 
-        <div className="Stock-view">
-            {stock.id} | {stock.name} | {stock.date} | {stock.supplier} | 
-            <br/>
-            <br/>
-            <button className="plus" onClick={()=>handlePlus(qty)}><h3>+</h3></button>
-            <h3 className="qty">Quantity: {qty}</h3>
-            <button className="minus" onClick={()=>handleMinus(qty)}><h3>-</h3></button>
-            <br/>
-            <br/>
-            <button className="Update" onClick={()=>updateStocks(stock.id,qty)}><h3>Update</h3></button>
-            <br/>
-            <br/>
+        <div className="Stock-view"
+        style={{ color: 'black', 
+        backgroundColor: '#ff78a0',
+        borderRadius: '8px',
+        marginLeft: '150px',
+        marginRight: '150px',
+        marginBottom:'3px',
+        borderBlockWidth: '5px', padding: '10px',
+        textAlign:'center'}}>
+            {stock.id} &nbsp;&nbsp;&nbsp;&nbsp;| {stock.name} &nbsp;&nbsp;&nbsp;&nbsp;| {stock.date} &nbsp;&nbsp;&nbsp;&nbsp;| {stock.supplier} &nbsp;&nbsp;&nbsp;&nbsp;| &nbsp;&nbsp;&nbsp;&nbsp;
+            <button className="plus" onClick={()=>handlePlus(qty)}>+</button> &nbsp;&nbsp;&nbsp;&nbsp;
+            Quantity: {qty} &nbsp;&nbsp;&nbsp;&nbsp;
+            <button className="minus" onClick={()=>handleMinus(qty)}>-</button>&nbsp;&nbsp;&nbsp;&nbsp;
+            <button className="Update" onClick={()=>updateStocks(stock.id,qty)}><h3>Update</h3></button>&nbsp;&nbsp;&nbsp;&nbsp;
             <button className="Update" onClick={()=>removeStock(stock.id)}><h3>Remove</h3></button>
-            <h5>______________________________________________________________________________</h5>
+        
         </div>
      );
 }

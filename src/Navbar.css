@@ -25,6 +25,21 @@
     text-decoration: none;
     display: block;
   }
+
+  .navbar h1 {
+    color: #f1356d;
+  }
+  .navbar .links {
+    margin-left:auto;
+  }
+  .navbar a {
+    margin-left: 10px;
+    text-decoration: none;
+    padding: 6px;
+  }
+  .navbar a:hover {
+    color: #f1356d;
+  }
   
   .dropdown-content a:hover {background-color: #ddd;}
   

@@ -1,4 +1,5 @@
 //import { useState } from "react";
+import './ProductView.css'
 import CartItem from "./CartItem";
 
 const Cart = ({product,updateItem,remove}) => {
@@ -17,7 +18,7 @@ console.log(product);
      return(
        
         
-      <div className="cartItem">
+      <div className="flex-container">
         {product.map(prod=>(
          <CartItem pro={prod} updateItem={updateItem} remove={remove} />
        ))}
